@@ -1,0 +1,175 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           InterestTracker
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/yourfin/InterestTracker#readme>
+homepage:       https://github.com/yourfin/InterestTracker#readme
+bug-reports:    https://github.com/yourfin/InterestTracker/issues
+author:         YourFin
+maintainer:     d.junkpobox+git@gmail.com
+copyright:      YourFin
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/yourfin/InterestTracker
+
+library
+  exposed-modules:
+      Lib
+      Model
+  other-modules:
+      Paths_InterestTracker
+  hs-source-dirs:
+      src
+  default-extensions:
+      DataKinds
+      FlexibleContexts
+      GADTs
+      LambdaCase
+      PolyKinds
+      RankNTypes
+      ScopedTypeVariables
+      TypeApplications
+      TypeOperators
+      TypeFamilies
+      OverloadedStrings
+      MultiWayIf
+      LambdaCase
+      TemplateHaskell
+      QuasiQuotes
+      DeriveGeneric
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , lens
+    , lens-aeson
+    , modern-uri
+    , optparse-applicative
+    , polysemy
+    , polysemy-plugin
+    , quickcheck-instances
+    , req
+    , servant-server
+    , sqlite-simple
+    , text
+    , time
+    , uri-encode
+    , wai
+    , warp
+  default-language: Haskell2010
+
+executable InterestTracker-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_InterestTracker
+  hs-source-dirs:
+      app
+  default-extensions:
+      DataKinds
+      FlexibleContexts
+      GADTs
+      LambdaCase
+      PolyKinds
+      RankNTypes
+      ScopedTypeVariables
+      TypeApplications
+      TypeOperators
+      TypeFamilies
+      OverloadedStrings
+      MultiWayIf
+      LambdaCase
+      TemplateHaskell
+      QuasiQuotes
+      DeriveGeneric
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      InterestTracker
+    , aeson
+    , base
+    , bytestring
+    , containers
+    , lens
+    , lens-aeson
+    , modern-uri
+    , optparse-applicative
+    , polysemy
+    , polysemy-plugin
+    , quickcheck-instances
+    , req
+    , servant-server
+    , sqlite-simple
+    , text
+    , time
+    , uri-encode
+    , wai
+    , warp
+  default-language: Haskell2010
+
+test-suite InterestTracker-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      ModelSpec
+      ReplUtil
+      Paths_InterestTracker
+  hs-source-dirs:
+      test
+  default-extensions:
+      DataKinds
+      FlexibleContexts
+      GADTs
+      LambdaCase
+      PolyKinds
+      RankNTypes
+      ScopedTypeVariables
+      TypeApplications
+      TypeOperators
+      TypeFamilies
+      OverloadedStrings
+      MultiWayIf
+      LambdaCase
+      TemplateHaskell
+      QuasiQuotes
+      DeriveGeneric
+  ghc-options: -O2 -flate-specialise -fspecialise-aggressively -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      InterestTracker
+    , QuickCheck
+    , aeson
+    , base
+    , bytestring
+    , containers
+    , generic-random
+    , hspec
+    , hspec-wai
+    , hspec-wai-json
+    , lens
+    , lens-aeson
+    , modern-uri
+    , optparse-applicative
+    , polysemy
+    , polysemy-plugin
+    , quickcheck-instances
+    , random
+    , req
+    , servant-server
+    , splitmix
+    , sqlite-simple
+    , text
+    , time
+    , uri-encode
+    , wai
+    , warp
+  default-language: Haskell2010
