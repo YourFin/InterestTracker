@@ -41,9 +41,13 @@ _Citation = iso parseCitation renderCitation
           CitationText text -> text
 
 
---instance FromJSON Citation where
---  parseJSON = withText "Citation" (.^ (_Citation . (pure @AesonT.Parser)))
+instance FromJSON Citation where
+  parseJSON = withText "Citation" (views _Citation pure)
 
+instance ToJSON Citation where
+  -- needs to be provided to shut up the generic implementation
+  toJSON = views (from _Citation) toJSON
+  toEncoding = views (from _Citation) toEncoding
 
 data Source
   = Source {
@@ -59,3 +63,7 @@ data Source
    deriving (Eq, Show, Generic)
 
 makeLenses ''Source
+
+instance FromJSON Source
+instance ToJSON Source where
+  toEncoding = genericToEncoding defaultOptions
