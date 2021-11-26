@@ -1,3 +1,4 @@
+{-# language QuasiQuotes #-}
 module Model where
 
 import Data.Text (Text)
@@ -6,6 +7,7 @@ import Data.Maybe (fromMaybe)
 import Text.URI (URI)
 import qualified Text.URI as URI
 import Text.URI.Lens as URIL
+import Text.URI.QQ as URIQQ
 import Network.HTTP.Req ()
 import Control.Lens hiding ((#))
 import Data.Time.Clock (UTCTime)
@@ -14,10 +16,16 @@ import qualified Data.Aeson.Types as AesonT
 import Data.Aeson
 import Data.Aeson.Lens
 
+import Data.Example
+
 data Citation
   = CitationUri URI
   | CitationText Text
   deriving (Eq, Show, Generic)
+
+instance Example Citation where
+  example1 = CitationUri [URIQQ.uri|http://google.com/|]
+  example2 = CitationText "Rowling, J.K., Harry Potter and the Goblet of Fire, Random House 1998 ed"
 
 makePrisms ''Citation
 
